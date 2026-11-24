@@ -21,24 +21,102 @@ function updateCalc(){
 [orders,weight,storage].forEach(x=>x.addEventListener("input",updateCalc));
 updateCalc();
 
-document.getElementById("pilotForm").addEventListener("submit", e=>{
-  e.preventDefault();
-  const status = document.getElementById("formStatus");
-  status.textContent = "Thanks — your pilot request has been captured in this demo. Connect this form to HubSpot/Apollo before launch.";
-  e.target.reset();
+const menu = document.querySelector(".menu");
+const links = document.getElementById("main-navigation");
+
+function setMenu(open) {
+  links.toggleAttribute("data-open", open);
+  menu.setAttribute("aria-expanded", String(open));
+  menu.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+}
+menu.addEventListener("click", () => setMenu(menu.getAttribute("aria-expanded") !== "true"));
+links.addEventListener("click", (event) => {
+  if (event.target.closest("a")) setMenu(false);
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && menu.getAttribute("aria-expanded") === "true") {
+    setMenu(false);
+    menu.focus();
+  }
 });
 
-document.querySelector(".menu").addEventListener("click", ()=>{
-  const links=document.querySelector(".nav-links");
-  links.style.display = links.style.display==="flex" ? "" : "flex";
-  if(links.style.display==="flex"){
-    links.style.position="absolute";
-    links.style.top="76px";
-    links.style.left="0";
-    links.style.right="0";
-    links.style.padding="20px";
-    links.style.background="#f5f7f4";
-    links.style.flexDirection="column";
-    links.style.borderBottom="1px solid #dfe5df";
+const form = document.getElementById("pilotForm");
+const status = document.getElementById("formStatus");
+const submit = form.querySelector("button[type=submit]");
+let widget;
+let challenge = "";
+
+function feedback(message, error = false) {
+  status.textContent = message;
+  status.toggleAttribute("data-error", error);
+}
+
+for (const link of document.querySelectorAll('a[href="#pilot"]')) {
+  link.addEventListener("click", () => { form.elements.intent.value = link.dataset.enquiry ?? "pilot"; });
+}
+
+function enableAnalytics() {
+  window.va = (...args) => { (window.vaq ||= []).push(args); };
+  const script = document.createElement("script");
+  script.src = "/_vercel/insights/script.js";
+  script.defer = true;
+  document.head.append(script);
+}
+
+async function prepareForm() {
+  try {
+    const response = await fetch("/api/enquiries", { cache: "no-store", signal: AbortSignal.timeout(5000) });
+    if (!response.ok) throw new Error("Configuration unavailable");
+    const config = await response.json();
+    if (config.analytics === true) enableAnalytics();
+    if (config.available !== true || !config.siteKey) {
+      feedback("Online enquiries are currently unavailable. Please check back later.", true);
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.onerror = () => feedback("The spam prevention check could not load. Please refresh and try again.", true);
+    script.onload = () => {
+      const invalidate = () => { challenge = ""; submit.disabled = true; };
+      widget = window.turnstile.render("#lead-challenge", {
+        sitekey: config.siteKey, action: "merchant_enquiry",
+        size: document.getElementById("lead-challenge").clientWidth < 300 ? "compact" : "flexible",
+        callback(token) { challenge = token; submit.disabled = false; if (status.textContent === "Complete the spam prevention check to send your enquiry.") feedback(""); },
+        "expired-callback"() { invalidate(); feedback("Complete the spam prevention check again.", true); },
+        "error-callback"() { invalidate(); feedback("Could not verify the spam prevention check.", true); }
+      });
+    };
+    document.head.append(script);
+    feedback("Complete the spam prevention check to send your enquiry.");
+  } catch {
+    feedback("Online enquiries are currently unavailable. Please check back later.", true);
+  }
+}
+void prepareForm();
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (!challenge || submit.disabled) return;
+  submit.disabled = true;
+  feedback("Sending your enquiry…");
+  const payload = Object.fromEntries(new FormData(form));
+  try {
+    const response = await fetch("/api/enquiries", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...payload, challenge }), signal: AbortSignal.timeout(12_000)
+    });
+    const result = await response.json();
+    if (response.status === 201 && result.accepted === true) {
+      form.reset();
+      feedback(result.message);
+      window.va?.("event", { name: "merchant_enquiry_accepted", data: { intent: payload.intent } });
+    } else {
+      feedback(result.message || "We could not confirm receipt. Please try again.", true);
+    }
+  } catch {
+    feedback("We could not confirm receipt of your enquiry. Please try again.", true);
+  } finally {
+    challenge = "";
+    window.turnstile.reset(widget);
   }
 });
