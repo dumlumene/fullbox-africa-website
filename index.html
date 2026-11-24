@@ -4,6 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Fullbox Africa — fulfillment infrastructure for global brands entering West Africa." />
+  <link rel="canonical" href="https://www.fullboxafrica.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Fullbox Africa">
+  <meta property="og:title" content="Fullbox Africa | Fulfillment for merchants entering West Africa">
+  <meta property="og:description" content="Plan a Nigeria-focused fulfillment pilot, from inventory storage and pick and pack to local delivery coordination.">
+  <meta property="og:url" content="https://www.fullboxafrica.com/">
+  <meta property="og:image" content="https://www.fullboxafrica.com/assets/social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Fullbox Africa, fulfillment infrastructure for West Africa">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <title>Fullbox Africa — Fulfillment Infrastructure for West Africa</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,35 +23,39 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#top">Skip to content</a>
   <header class="nav-wrap">
-    <nav class="nav container">
+    <nav class="nav container" aria-label="Main navigation">
       <a class="logo" href="#top"><span class="logo-mark">F</span><span>FULLBOX<span class="muted"> AFRICA</span></span></a>
-      <div class="nav-links">
+      <div class="nav-links" id="main-navigation">
         <a href="#solutions">Solutions</a>
         <a href="#how">How it works</a>
         <a href="#network">Network</a>
         <a href="#calculator">Pricing</a>
-        <a href="#developers">Developers</a>
+        <a href="#marketplace">Marketplace</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a class="mobile-pilot" href="#pilot">Request a Pilot</a>
       </div>
-      <a class="btn btn-dark nav-cta" href="#pilot">Book a Pilot <span>↗</span></a>
-      <button class="menu" aria-label="Open menu">☰</button>
+      <a class="btn btn-dark nav-cta" href="#pilot">Request a Pilot <span>↗</span></a>
+      <button class="menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-navigation">☰</button>
     </nav>
   </header>
 
-  <main id="top">
+  <main id="top" tabindex="-1">
     <section class="hero container">
       <div class="hero-copy">
         <div class="eyebrow"><span class="pulse"></span> WEST AFRICA • FULFILLMENT INFRASTRUCTURE</div>
         <h1>Enter West Africa.<br><em>We handle the fulfillment.</em></h1>
-        <p class="hero-sub">Fullbox gives global e-commerce brands the infrastructure to import, store, fulfill and deliver across West Africa — without building warehouses, fleets or local operations from scratch.</p>
+        <p class="hero-sub">Fullbox helps international merchants plan entry into Nigeria with inventory storage, pick and pack, order management and local delivery coordination. Together, we scope a pilot around your products and target markets.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#pilot">Book a Pilot <span>↗</span></a>
+          <a class="btn btn-primary" href="#pilot">Request a Pilot <span>↗</span></a>
           <a class="btn btn-ghost" href="#calculator">Calculate your costs <span>→</span></a>
         </div>
         <div class="hero-note"><span>●</span> Built for international D2C brands, marketplaces and cross-border sellers.</div>
       </div>
 
-      <div class="hero-visual">
+      <div class="hero-visual" aria-hidden="true">
         <div class="orbit orbit-1"></div>
         <div class="orbit orbit-2"></div>
         <div class="globe">
@@ -50,17 +66,17 @@
           <div class="city-dot abidjan"><b></b><span>Abidjan</span></div>
           <div class="route r1"></div><div class="route r2"></div><div class="route r3"></div>
         </div>
-        <div class="floating-card fc-top"><small>FULFILLMENT LAYER</small><strong>One integration.</strong><span>Multiple markets.</span></div>
-        <div class="floating-card fc-bottom"><span class="metric-dot"></span><div><strong>24–48 HR</strong><small>Target delivery window*</small></div></div>
+        <div class="floating-card fc-top"><small>FULFILLMENT LAYER</small><strong>Order coordination.</strong><span>Nigeria-first planning.</span></div>
+        <div class="floating-card fc-bottom"><span class="metric-dot"></span><div><strong>Pilot scope</strong><small>Agreed with each merchant</small></div></div>
       </div>
     </section>
 
     <section class="metric-strip">
       <div class="container metrics">
-        <div><strong>01</strong><span>Central fulfillment hub</span></div>
-        <div><strong>24–48 HR*</strong><span>Target local delivery</span></div>
-        <div><strong>0</strong><span>Fleet ownership required</span></div>
-        <div><strong>1</strong><span>Operating layer</span></div>
+        <div><strong>Market entry</strong><span>Nigeria-first planning</span></div>
+        <div><strong>Storage</strong><span>Inventory receiving and handling</span></div>
+        <div><strong>Pick &amp; pack</strong><span>Order preparation</span></div>
+        <div><strong>Delivery</strong><span>Local coordination</span></div>
       </div>
     </section>
 
@@ -84,12 +100,12 @@
           <p>From inbound stock to final-mile delivery, Fullbox coordinates the physical operations behind your digital commerce business.</p>
         </div>
         <div class="flow">
-          <div class="flow-node source"><span>GLOBAL BRAND</span><strong>Shopify / WooCommerce / Odoo / API</strong></div>
+          <div class="flow-node source"><span>GLOBAL BRAND</span><strong>Merchant commerce system</strong></div>
           <div class="flow-line"></div>
           <div class="flow-node fullbox"><small>FULLBOX</small><strong>API + WMS</strong><span>Inventory • Orders • Routing • Reporting</span></div>
           <div class="flow-line"></div>
           <div class="flow-row">
-            <div class="mini-node">Import & Customs</div>
+            <div class="mini-node">Inbound planning</div>
             <div class="mini-node">Warehousing</div>
             <div class="mini-node">Pick & Pack</div>
             <div class="mini-node">Last Mile</div>
@@ -104,9 +120,9 @@
         <div><div class="eyebrow">HOW IT WORKS</div><h2>From inventory to customer, without the operational maze.</h2></div>
       </div>
       <div class="steps">
-        <article class="step"><div class="step-num">01</div><div><h3>Send your inventory</h3><p>Your products arrive in West Africa. Fullbox coordinates receiving, processing and inventory staging.</p><div class="tag">INBOUND</div></div></article>
-        <article class="step active"><div class="step-num">02</div><div><h3>Connect your store</h3><p>Orders flow from your commerce platform into the Fullbox fulfillment system.</p><div class="tag">API SYNC</div></div></article>
-        <article class="step"><div class="step-num">03</div><div><h3>We fulfill & deliver</h3><p>Fullbox picks, packs and routes orders through the appropriate local delivery partner.</p><div class="tag">LAST MILE</div></div></article>
+        <article class="step"><div class="step-num">01</div><div><h3>Send your inventory</h3><p>We agree receiving, storage and inventory handling requirements before sending stock.</p><div class="tag">INBOUND</div></div></article>
+        <article class="step active"><div class="step-num">02</div><div><h3>Connect your store</h3><p>During pilot scoping we agree how orders and stock updates will be shared with your team.</p><div class="tag">ORDER MANAGEMENT</div></div></article>
+        <article class="step"><div class="step-num">03</div><div><h3>We fulfill & deliver</h3><p>Fullbox scopes pick and pack, carrier coordination and tracking updates for the agreed destinations.</p><div class="tag">LAST MILE</div></div></article>
       </div>
     </section>
 
@@ -114,18 +130,18 @@
       <div class="container">
         <div class="section-head">
           <div><div class="eyebrow">REGIONAL NETWORK</div><h2>Start in Nigeria. Scale across West Africa.</h2></div>
-          <p>Your operating model stays consistent as your market footprint expands.</p>
+          <p>Nigeria is the initial focus. We confirm service areas and delivery options during pilot scoping. Additional markets are being evaluated.</p>
         </div>
         <div class="network-layout">
           <div class="map-card">
-            <div class="map-title"><span>NETWORK STATUS</span><b>2026 →</b></div>
+            <div class="map-title"><span>ILLUSTRATIVE MARKET MAP</span><b>PLANNING VIEW</b></div>
             <div class="map">
               <div class="country nigeria"><span>NIGERIA</span></div>
               <div class="country ghana"><span>GHANA</span></div>
               <div class="country ivory"><span>IVORY COAST</span></div>
-              <div class="node n-lagos"><i></i><b>Lagos</b><small>Primary hub</small></div>
-              <div class="node n-abuja"><i></i><b>Abuja</b><small>Forward node</small></div>
-              <div class="node n-ph"><i></i><b>Port Harcourt</b><small>Regional node</small></div>
+              <div class="node n-lagos"><i></i><b>Lagos</b><small>Initial focus</small></div>
+              <div class="node n-abuja"><i></i><b>Abuja</b><small>Planning</small></div>
+              <div class="node n-ph"><i></i><b>Port Harcourt</b><small>Planning</small></div>
               <div class="node n-accra"><i></i><b>Accra</b><small>Phase 2</small></div>
               <div class="node n-abidjan"><i></i><b>Abidjan</b><small>Phase 2</small></div>
               <svg viewBox="0 0 700 380" preserveAspectRatio="none" class="map-routes">
@@ -136,9 +152,9 @@
             </div>
           </div>
           <div class="coverage-list">
-            <div class="coverage active"><span class="phase">PHASE 01</span><h3>Nigeria</h3><p>Lagos primary fulfillment hub with expansion nodes in Abuja and Port Harcourt.</p><b>ACTIVE MARKET</b></div>
-            <div class="coverage"><span class="phase">PHASE 02</span><h3>Ghana + Ivory Coast</h3><p>Accra and Abidjan extend the same fulfillment infrastructure across additional markets.</p><b>EXPANSION</b></div>
-            <div class="coverage"><span class="phase">FUTURE</span><h3>Wider West Africa</h3><p>Regional nodes designed to make multi-market expansion progressively simpler.</p><b>ROADMAP</b></div>
+            <div class="coverage active"><span class="phase">PHASE 01</span><h3>Nigeria</h3><p>Lagos is the initial planning focus. Ask us which destinations and services can be supported for your pilot.</p><b>INITIAL FOCUS</b></div>
+            <div class="coverage"><span class="phase">PHASE 02</span><h3>Ghana + Ivory Coast</h3><p>Accra and Abidjan are examples of markets under consideration. Availability depends on future rollout.</p><b>EXPANSION</b></div>
+            <div class="coverage"><span class="phase">FUTURE</span><h3>Wider West Africa</h3><p>Plannings designed to make multi-market expansion progressively simpler.</p><b>ROADMAP</b></div>
           </div>
         </div>
       </div>
@@ -148,15 +164,15 @@
       <div class="calculator-intro">
         <div class="eyebrow">FULFILLMENT ECONOMICS</div>
         <h2>Estimate what entering West Africa could cost.</h2>
-        <p>Use the calculator for an indicative monthly estimate. Final pricing depends on product category, dimensions, storage, destination, service level and volume.</p>
+        <p>This calculator uses illustrative assumptions in Nigerian naira. It is not a quote or approved tariff. Request a written quote for your product category, dimensions, storage, destinations and volumes.</p>
         <div class="calc-trust"><span>✓</span> No commitment</div>
       </div>
       <div class="calculator">
-        <div class="calc-row"><label>Monthly orders <output id="ordersOut">500</output></label><input id="orders" type="range" min="100" max="10000" step="100" value="500"></div>
-        <div class="calc-row"><label>Average package weight <output id="weightOut">1.0 kg</output></label><input id="weight" type="range" min="0.2" max="10" step="0.1" value="1"></div>
-        <div class="calc-row"><label>Storage requirement <output id="storageOut">2 m³</output></label><input id="storage" type="range" min="0" max="50" step="1" value="2"></div>
-        <div class="calc-result"><span>Indicative monthly fulfillment</span><strong id="estimate">₦1,075,000</strong><small>Pick & pack + storage + indicative carrier allocation</small></div>
-        <a href="#pilot" class="btn btn-primary full">Get a Fullbox Quote <span>↗</span></a>
+        <div class="calc-row"><label for="orders">Monthly orders <output id="ordersOut">500</output></label><input id="orders" type="range" min="100" max="10000" step="100" value="500"></div>
+        <div class="calc-row"><label for="weight">Average package weight <output id="weightOut">1.0 kg</output></label><input id="weight" type="range" min="0.2" max="10" step="0.1" value="1"></div>
+        <div class="calc-row"><label for="storage">Storage requirement <output id="storageOut">2 m³</output></label><input id="storage" type="range" min="0" max="50" step="1" value="2"></div>
+        <div class="calc-result"><span>Indicative monthly fulfillment</span><strong id="estimate">₦905,000</strong><small>Pick & pack + storage + indicative carrier allocation</small></div>
+        <a href="#pilot" class="btn btn-primary full" data-enquiry="quote">Request a custom quote <span>↗</span></a>
       </div>
     </section>
 
@@ -165,11 +181,11 @@
         <div>
           <div class="eyebrow">DEVELOPERS</div>
           <h2>Integrate once.<br><em>Fulfill across West Africa.</em></h2>
-          <p>Connect your commerce stack to a single fulfillment layer. Keep your customer experience; let Fullbox coordinate the physical operation.</p>
-          <a class="btn btn-light" href="#pilot">Request API Access <span>↗</span></a>
+          <p>Tell us how you manage orders and stock. We’ll discuss available workflows and evaluate any integration requirements during your pilot.</p>
+          <a class="btn btn-light" href="#pilot">Discuss integration requirements <span>↗</span></a>
         </div>
         <div class="code-card">
-          <div class="code-top"><span>FULLBOX API</span><span>● LIVE</span></div>
+          <div class="code-top"><span>FULLBOX API</span><span>ILLUSTRATIVE WORKFLOW</span></div>
           <pre><code>POST /v1/orders
 
 {
@@ -190,16 +206,46 @@
       </div>
     </section>
 
+    <section id="marketplace" class="section container">
+      <div class="section-head"><div><div class="eyebrow">IN DEVELOPMENT</div><h2>Fullbox Marketplace</h2></div>
+        <p>Participating merchants will retain ownership of their inventory while Fullbox coordinates marketplace commerce and fulfillment operations. Register for updates and early access.</p>
+      </div>
+      <a class="btn btn-primary" href="https://tally.so/r/J1lQJz">Join the Marketplace early-access list <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section id="about" class="network-section">
+      <div class="container section-head">
+        <div><h2>About Fullbox Africa</h2></div>
+        <p>Fullbox is an asset-light, technology-enabled fulfillment and commerce infrastructure business focused on Nigeria. We work with merchants to plan stock handling, order workflows, visibility and regional expansion without requiring them to build local operations first.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h2>Contact Fullbox Africa</h2>
+      <p>Use the enquiry form to discuss a Nigeria launch, ask a question or request a tailored quote.</p>
+      <a class="btn btn-ghost" href="#pilot" data-enquiry="contact">Open the enquiry form <span aria-hidden="true">→</span></a>
+    </section>
+
     <section id="pilot" class="pilot container">
-      <div class="pilot-copy"><div class="eyebrow">START SMALL. SCALE FAST.</div><h2>Ready to test West Africa?</h2><p>Tell us about your products, volumes and target market. We'll use the information to scope a practical pilot.</p></div>
-      <form class="pilot-form" id="pilotForm">
-        <input required name="company" placeholder="Company name" />
-        <input required name="website" placeholder="Company website" />
-        <input required type="email" name="email" placeholder="Work email" />
-        <select name="country"><option value="">Target market</option><option>Nigeria</option><option>Ghana</option><option>Ivory Coast</option><option>Other West Africa</option></select>
-        <select name="volume"><option value="">Monthly order volume</option><option>100–500</option><option>500–2,000</option><option>2,000–10,000</option><option>10,000+</option></select>
-        <button class="btn btn-primary full" type="submit">Request Pilot Assessment <span>↗</span></button>
-        <p class="form-status" id="formStatus"></p>
+      <div class="pilot-copy"><h2>Request a pilot or quote</h2><p>Tell us about your products, volumes and target markets so we can assess your requirements.</p></div>
+      <form class="pilot-form" id="pilotForm" method="post" action="/api/enquiries" aria-describedby="lead-notice">
+        <label>Enquiry type<select required name="intent"><option value="pilot">Pilot assessment</option><option value="quote">Custom quote</option><option value="contact">General enquiry</option></select></label>
+        <label>Company name<input required name="company" autocomplete="organization" maxlength="120"></label>
+        <label>Contact name<input required name="contact" autocomplete="name" maxlength="120"></label>
+        <label>Business email<input required type="email" name="email" autocomplete="email" maxlength="254"></label>
+        <label>Company website<input required type="url" name="website" autocomplete="url" maxlength="500" placeholder="https://example.com"></label>
+        <label>Country of origin<input required name="country" autocomplete="country-name" maxlength="100"></label>
+        <label>Target African markets<input required name="markets" maxlength="240" placeholder="e.g. Nigeria, Ghana"></label>
+        <label>Product category<input required name="category" maxlength="120"></label>
+        <label>Estimated monthly orders<input required type="number" name="orders" min="0" max="10000000" step="1"></label>
+        <label>Required fulfillment services<input required name="services" maxlength="350" placeholder="e.g. storage, pick and pack, delivery"></label>
+        <label class="wide">Additional information <span>(optional)</span><textarea name="details" maxlength="2000" rows="4"></textarea></label>
+        <div hidden aria-hidden="true"><label>Leave blank<input name="fax" tabindex="-1" autocomplete="off"></label></div>
+        <label class="consent wide"><input type="checkbox" name="consent" required value="yes"><span id="lead-notice">I agree that Fullbox may use this information to respond to my enquiry. See the <a href="/privacy">Privacy Policy</a>.</span></label>
+        <div id="lead-challenge" class="wide"></div>
+        <button class="btn btn-primary full wide" type="submit" disabled>Send enquiry <span aria-hidden="true">↗</span></button>
+        <p class="form-status wide" id="formStatus" role="status" aria-live="polite">Checking enquiry availability…</p>
+        <noscript><p class="wide">Enable JavaScript to submit through the website.</p></noscript>
       </form>
     </section>
 
@@ -216,10 +262,10 @@
     <div class="container footer-inner">
       <a class="logo" href="#top"><span class="logo-mark">F</span><span>FULLBOX<span class="muted"> AFRICA</span></span></a>
       <div>Fulfillment infrastructure for global brands entering West Africa.</div>
-      <div>© 2026 Fullbox Africa</div>
+      <div><a href="#developers">Developers</a> · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Use</a><br>© 2026 Fullbox Africa</div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
